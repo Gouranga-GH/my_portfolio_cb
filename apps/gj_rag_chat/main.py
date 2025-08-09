@@ -198,18 +198,10 @@ def main():
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
     embedder = get_hf_embedder(hf_key, model_name)
 
-    # Build FAISS index on each session launch; cache in session_state for this run only
+    # Do NOT build the index on startup to avoid Streamlit Cloud health-check timeouts.
+    # We will build it lazily on the first question.
     if "vs" not in st.session_state:
-        # Quick health check to surface clearer errors for HF token/model issues
-        try:
-            _ = embedder.embed_query("healthcheck")
-        except Exception as e:
-            st.error(
-                "Embedding API call failed. Verify HF_TOKEN is valid (read access), the model 'sentence-transformers/all-MiniLM-L6-v2' is available for Inference API, and your network allows outbound HTTPS.\n\nDetails: "
-                + str(e)
-            )
-            st.stop()
-        st.session_state["vs"] = build_faiss_index(docs, embedder)
+        st.session_state["vs"] = None
 
     # Initialize chat history
     if "messages" not in st.session_state:
@@ -231,8 +223,16 @@ def main():
             st.error("Missing Groq key. Set GROQ_API_KEY in your .env and restart.")
             st.stop()
 
-        # Retrieve
-        # FAISS search
+        # Build index on demand (first question only)
+        if st.session_state.get("vs") is None:
+            with st.spinner("Preparing knowledge index… (one-time per session)"):
+                try:
+                    st.session_state["vs"] = build_faiss_index(docs, embedder)
+                except Exception as e:
+                    st.error("Failed to prepare embeddings. Please verify HF_TOKEN and try again.\n\n" + str(e))
+                    st.stop()
+
+        # Retrieve via vector search
         docs_found = st.session_state["vs"].similarity_search(user_msg, k=top_k)
         retrieved = [d.page_content for d in docs_found]
         sources = list({d.metadata.get("source", "") for d in docs_found}) if docs_found else []
