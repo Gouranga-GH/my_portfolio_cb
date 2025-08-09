@@ -1,0 +1,169 @@
+Projects Summary
+
+- Project: Agentic Data Cleaning Pipeline (Orchestrator-Worker, LLM-powered)
+  Link: https://github.com/Gouranga-GH/aai_ow_dc
+  Summary: Agentic data-cleaning workflow on tabular CSVs using orchestrator/worker LLM agents. Stack: Python, Streamlit, LangChain, ChatGroq, pandas.
+
+- Project: Additional-Files
+  Link: https://github.com/Gouranga-GH/Additional-Files
+  Summary: Auxiliary repository for shared files/assets. Stack: Docs/Markdown.
+
+- Project: applied_stats_proj
+  Link: https://github.com/Gouranga-GH/applied_stats_proj
+  Summary: Applied statistics on business/sports data with hypothesis testing and EDA. Stack: Python, pandas, NumPy, SciPy, matplotlib/seaborn, ANOVA/t-tests/chi-square.
+
+- Project: Bedtime Story Generator
+  Link: https://github.com/Gouranga-GH/b_story_gen
+  Summary: Personalized bedtime story generator. Stack: Python, Streamlit, LangChain, Hugging Face.
+
+- Project: RAG based Chatbot with Document Upload and Chat History
+  Link: https://github.com/Gouranga-GH/cb_rag_pdf
+  Summary: Conversational RAG over PDFs with session history. Stack: Python, Streamlit, LangChain, Chroma, PyPDF, Hugging Face, Groq.
+
+- Project: Coding Assistant
+  Link: https://github.com/Gouranga-GH/code_assist_aws
+  Summary: Coding Q&A assistant with Gradio UI. Stack: Python, Gradio, LangChain, Groq.
+
+- Project: Synthetic Data Generator
+  Link: https://github.com/Gouranga-GH/custom_pypi_sdg
+  Summary: Package to generate continuous/categorical/time-series synthetic data with noise. Stack: Python (package), NumPy, pandas; TestPyPI.
+
+- Project: Face Detection and Recognition Project
+  Link: https://github.com/Gouranga-GH/cv_face_detc_recg
+  Summary: U-Net segmentation for face masks + recognition via embeddings/SVM. Stack: Python, OpenCV, deep learning, PCA, SVM.
+
+- Project: Wine Quality Prediction (E2E with MLflow & AWS)
+  Link: https://github.com/Gouranga-GH/ETEP-MLOps-MLflow-AWS
+  Summary: Modular E2E ML pipeline with MLflow tracking and Flask app. Stack: Python, scikit-learn (ElasticNet), MLflow, Flask, AWS, GitHub Actions.
+
+- Project: Text Summarization Web Application
+  Link: https://github.com/Gouranga-GH/ETEP-Modular-Coding-Docker-AWS
+  Summary: Training/evaluation and inference for abstractive summarization via FastAPI. Stack: Python, FastAPI, Transformers (PEGASUS), ROUGE, Docker, AWS.
+
+- Project: Academic Achievement Metric Estimator
+  Link: https://github.com/Gouranga-GH/ETEP-ModularCoding-GitHub-CodePipe-AWSEB
+  Summary: Predict student scores; deployed via AWS Elastic Beanstalk with CD. Stack: Python, Flask, scikit-learn, AWS CodePipeline.
+
+- Project: Starducks Coffee Sales Dashboard Using MS-Excel
+  Link: https://github.com/Gouranga-GH/Excel_CF_Sales
+  Summary: Excel dashboard on sales trends, categories, stores, hours. Stack: Excel.
+
+- Project: Face Detection Live Using OpenCV
+  Link: https://github.com/Gouranga-GH/fd_live_ocv
+  Summary: Real-time webcam face detection using Haar Cascades. Stack: Python, OpenCV.
+
+- Project: Semiconductor Manufacturing Yield Prediction
+  Link: https://github.com/Gouranga-GH/fe_smyp
+  Summary: Classifier for pass/fail with intensive feature engineering and EDA. Stack: Python, pandas, scikit-learn.
+
+- Project: Movie Review Generator: Before vs After Fine-Tuning
+  Link: https://github.com/Gouranga-GH/ft-llm
+  Summary: Compare DistilGPT-2 before/after fine-tuning via Streamlit UI. Stack: Python, Streamlit, Transformers, Datasets.
+
+- Project: California Housing Dataset Analysis (Hypothesis Testing)
+  Link: https://github.com/Gouranga-GH/hypothesis_test_proj_cal_housing
+  Summary: Statistical analysis of factors influencing prices. Stack: pandas, NumPy, SciPy/statsmodels, scikit-learn.
+
+- Project: OCR Flask API
+  Link: https://github.com/Gouranga-GH/img_2_txt_pytesseract
+  Summary: OCR API to extract text from images and return/save results. Stack: Python, Flask, OpenCV, pytesseract, Pillow.
+
+- Project: IOT Product Support Chatbot
+  Link: https://github.com/Gouranga-GH/iot_support_chatbot
+  Summary: RAG chatbot with registration, multi-language, feedback, MySQL. Stack: Python, Streamlit, LangChain, FAISS, MySQL, Groq.
+
+- Project: Career Compass AI (Job Search)
+  Link: https://github.com/Gouranga-GH/js_gai
+  Summary: AI job search with modern UI and filters. Stack: Python, Streamlit, LangChain, Groq, SerpAPI.
+
+- Project: AI News Reporter (MCP)
+  Link: https://github.com/Gouranga-GH/mcp_aai
+  Summary: Conversational app using MCP tools (weather/news). Stack: Python, Streamlit, LangChain/LangGraph, Open-Meteo, SerpAPI.
+
+- Project: Agentic AI Project
+  Link: https://github.com/Gouranga-GH/multi_aai_jk_fg_sq
+  Summary: Agentic AI with single-tool selection; CI/CD to AWS. Stack: Python, FastAPI, Streamlit, LangChain/LangGraph, Groq, Jenkins, Docker.
+
+- Project: Gouranga Jha's Data Science Portfolio
+  Link: https://github.com/Gouranga-GH/my-portfolio
+  Summary: Portfolio website with projects/skills. Stack: HTML, CSS (Bootstrap), JS, GitHub Pages.
+
+- Project: NLP Sequential Model Project
+  Link: https://github.com/Gouranga-GH/nlp_sequential_uc_2
+  Summary: IMDB sentiment and sarcasm detection (BiLSTM). Stack: Python, Keras/TensorFlow, GloVe.
+
+- Project: NLP Text Classification & Semi-Rule Based Chatbot
+  Link: https://github.com/Gouranga-GH/nlp_uc_2
+  Summary: Multi-label author attribute classification + rule-based chatbot. Stack: Python, NLP vectorization, classic ML.
+
+- Project: Image Classification Using ML and Neural Networks
+  Link: https://github.com/Gouranga-GH/nn_ml_cv_img_clf
+  Summary: ML/NN/CNN comparison for plant species classification. Stack: Python, scikit-learn, Keras/TensorFlow.
+
+- Project: Neural Networks Projects (Signal Regression + SVHN)
+  Link: https://github.com/Gouranga-GH/nnp_uc_2
+  Summary: NN regression for signal quality; SVHN digit recognition. Stack: Python, deep learning, h5py.
+
+- Project: Twiggy Instamart Sales Analysis (Power BI)
+  Link: https://github.com/Gouranga-GH/pbi_tida
+  Summary: Power BI KPIs/dashboards for sales. Stack: Power BI, DAX, Excel.
+
+- Project: MyBay Shopping App - Product Recommendation System
+  Link: https://github.com/Gouranga-GH/R-S-EC
+  Summary: Flask app with TF-IDF + cosine recommendations; MySQL auth. Stack: Python, Flask, SQLAlchemy, scikit-learn, Bootstrap.
+
+- Project: Supervised Learning - Use Cases (Healthcare/Banking)
+  Link: https://github.com/Gouranga-GH/sl_use_cases_hc_bk
+  Summary: Supervised learning workflows with EDA, tuning, and reports. Stack: Python, pandas, scikit-learn.
+
+- Project: E-Commerce AI Recommendation System
+  Link: https://github.com/Gouranga-GH/smart_e_com_rec_sys_1144
+  Summary: RAG-based recommendations with chat UI and full DevOps. Stack: Python, Flask, Groq, HF embeddings, AstraDB, Prometheus, Grafana, Docker/K8s.
+
+- Project: SQL AI Explorer
+  Link: https://github.com/Gouranga-GH/sql_ai
+  Summary: Natural language to SQL over MySQL with Gradio UI. Stack: Python, Gradio, LangChain, Groq, SQLAlchemy, mysql-connector, pandas.
+
+- Project: O2Tel Customer Churn Analysis (SQL/Power BI/ML)
+  Link: https://github.com/Gouranga-GH/sql_pbi_ml_tcc
+  Summary: Churn EDA + Power BI + Random Forest prediction. Stack: SQL Server, Power BI, Python.
+
+- Project: Global Mart: Retail Orders E-commerce Analysis
+  Link: https://github.com/Gouranga-GH/sql_py_gm_sales
+  Summary: SQL-driven e-commerce analysis with KPIs and insights. Stack: SQL, Python notebooks.
+
+- Project: OTT Content Analysis Project
+  Link: https://github.com/Gouranga-GH/sql_py_ott_nx
+  Summary: Netflix catalog analysis (mix/ratings/trends/genres). Stack: SQL + Python (EDA), notebooks.
+
+- Project: Target Brazil Dataset Analysis
+  Link: https://github.com/Gouranga-GH/sql_py_retail_tt
+  Summary: E-commerce analysis of Target Brazil with SQL + notebooks. Stack: Python (pandas/SQLAlchemy), SQL, Jupyter.
+
+- Project: California House Prices Prediction (Structured Thinking)
+  Link: https://github.com/Gouranga-GH/structured_thinking_ML_Project
+  Summary: Structured frameworks + E2E ML + deployment discussion. Stack: Python, pandas, scikit-learn, joblib.
+
+- Project: tcc_ml_ensemble
+  Link: https://github.com/Gouranga-GH/tcc_ml_ensemble
+  Summary: Ensemble ML exploration (README minimal). Stack: Python/ML (assorted).
+
+- Project: Synthetic Data Generator Project (Colab)
+  Link: https://github.com/Gouranga-GH/test_pypi_published_synth_data_gen_clf_use_case
+  Summary: Colab demo using SyntheticDataGenerator + Logistic Regression. Stack: Python, scikit-learn, TestPyPI.
+
+- Project: Anomaly Detection Project
+  Link: https://github.com/Gouranga-GH/UL_Anomaly_Detection_ISD
+  Summary: Isolation Forest, DBSCAN, LOF comparison (visuals + metrics). Stack: Python, scikit-learn, notebooks.
+
+- Project: Unsupervised Learning Use Cases
+  Link: https://github.com/Gouranga-GH/ul_use_cases_5
+  Summary: Clustering/regression (auto), synthetic wine data, PCA+SVM, sports ranking, multimedia dim. reduction. Stack: Python, pandas, scikit-learn, PCA, SVM, clustering.
+
+- Project: Ecommerce Web Scraping Project
+  Link: https://github.com/Gouranga-GH/WS_AMZN
+  Summary: Amazon product and review scraping to CSV. Stack: Python, requests, BeautifulSoup, pandas.
+
+- Project: YouTube to Content Creator
+  Link: https://github.com/Gouranga-GH/yt_to_other_sm
+  Summary: Multi-agent pipeline to transform YouTube to Instagram/Medium content. Stack: Python, Streamlit, CrewAI, yt-dlp, OpenAI API (BYO key).

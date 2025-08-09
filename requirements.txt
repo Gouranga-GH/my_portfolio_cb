@@ -1,0 +1,13 @@
+tqdm
+streamlit
+langchain
+langchain-community
+langchain-groq
+chromadb
+python-dotenv
+guardrails-ai
+docx2txt
+huggingface_hub
+langchain-huggingface
+faiss-cpu
+

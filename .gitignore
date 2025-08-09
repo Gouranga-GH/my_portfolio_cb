@@ -1,0 +1,13 @@
+.env
+temp_files/
+venv/
+__pycache__/
+*.pyc
+Thumbs.db
+.DS_Store
+
+# Chroma DB persistence
+data/chroma_db/
+
+# (Keep Streamlit config tracked for theming)
+

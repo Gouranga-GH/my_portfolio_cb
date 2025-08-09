@@ -1,0 +1,16 @@
+# Copy this file to .env and fill in your values
+# Example: rename to .env (kept out of git via .gitignore)
+
+# Your GitHub personal access token
+# For public repos, a classic token with public_repo scope is sufficient
+GITHUB_TOKEN=your_github_token_here
+
+# Default GitHub owner (user or organization). You can also pass it as the first CLI arg
+GH_OWNER=Gouranga-GH
+
+# Groq API key for the RAG chatbot app (Streamlit)
+GROQ_API_KEY=your_groq_api_key_here
+
+# Hugging Face token for embeddings (used by HF Inference API)
+HF_TOKEN=your_huggingface_api_token_here
+
