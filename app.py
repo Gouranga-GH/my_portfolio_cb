@@ -1,15 +1,11 @@
-import os
-from pathlib import Path
+"""Streamlit entrypoint for Cloud.
 
+On Streamlit Cloud, the `main` file is executed by Streamlit directly.
+We should import our app's `main()` and call it, not spawn a new
+`streamlit run` process.
+"""
 
-def main():
-    # Simple entry-point that forwards to the Streamlit app
-    project_root = Path(__file__).resolve().parent
-    target = project_root / "apps" / "gj_rag_chat" / "main.py"
-    if not target.exists():
-        raise SystemExit("Streamlit app not found at apps/gj_rag_chat/main.py")
-    # Launch via streamlit if run directly
-    os.system(f"streamlit run {str(target)}")
+from apps.gj_rag_chat.main import main  # noqa: E402
 
 
 if __name__ == "__main__":
