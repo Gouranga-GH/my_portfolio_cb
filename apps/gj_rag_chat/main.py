@@ -13,6 +13,7 @@ import docx2txt
 # Removed guardrails import due to Python 3.12 compatibility issues
 
 from langchain_groq import ChatGroq
+from langchain_core.messages import HumanMessage
 
 
 APP_TITLE = "Hi, I am Gouranga Jha — ask me a question"
@@ -109,9 +110,23 @@ def validate_response(response_text: str, user_question: str) -> str:
 
 
 def run_llm(groq_key: str, prompt: str) -> Dict:
-    llm = ChatGroq(temperature=0.2, model_name="llama3-8b-8192", groq_api_key=groq_key)
-    raw = llm.invoke(prompt)
-    return {"answer": raw.content, "sources": []}
+    try:
+        # Try with a more standard model name first
+        llm = ChatGroq(temperature=0.2, model_name="llama-3.1-8b-instant", groq_api_key=groq_key)
+        # Use proper LangChain message format
+        message = HumanMessage(content=prompt)
+        raw = llm.invoke([message])
+        return {"answer": raw.content, "sources": []}
+    except Exception as e:
+        # Fallback to original model name if the new one fails
+        try:
+            llm = ChatGroq(temperature=0.2, model_name="llama3-8b-8192", groq_api_key=groq_key)
+            message = HumanMessage(content=prompt)
+            raw = llm.invoke([message])
+            return {"answer": raw.content, "sources": []}
+        except Exception as fallback_error:
+            # If both fail, return an error message
+            return {"answer": f"Sorry, I'm having trouble processing your request right now. Error: {str(fallback_error)}", "sources": []}
 
 
 def make_prompt(user_msg: str, context_chunks: List[str], history: List[Dict]) -> str:
