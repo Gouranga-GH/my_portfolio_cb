@@ -10,7 +10,7 @@ from langchain_community.vectorstores import FAISS, DocArrayInMemorySearch
 
 import docx2txt
 
-from guardrails import Guard
+# Removed guardrails import due to Python 3.12 compatibility issues
 
 from langchain_groq import ChatGroq
 
@@ -82,25 +82,30 @@ PERSONA_SYSTEM = (
     "Be concise, professional, and highlight relevant skills/tech where useful."
 )
 
-GUARDRAILS_XML = """
-<rail version="0.1">
-  <output>
-    <string name="answer" description="First-person answer as Gouranga Jha" />
-    <list name="sources">
-      <string description="Short source label (e.g., Resume, Projects_Summary)" />
-    </list>
-  </output>
-  <instructions>
-    - Always speak in first person as Gouranga Jha.
-    - Use only the given context.
-    - If the user's question cannot be answered from the given context, then (and only then) add a single closing sentence inviting the user to check the portfolio at """ + PORTFOLIO_URL + """.
-    - Do not include any portfolio line for greetings or when the question is fully answered.
-    - Keep answers concise and professional.
-  </instructions>
-</rail>
-"""
-
-guard = Guard.from_rail_string(GUARDRAILS_XML)
+def validate_response(response_text: str, user_question: str) -> str:
+    """
+    Simple validation function to replace guardrails.
+    Adds portfolio link only if the response seems incomplete or out of context.
+    """
+    # Keywords that suggest the question wasn't fully answered
+    incomplete_indicators = [
+        "i don't have information",
+        "i cannot answer",
+        "not available in my context",
+        "i don't know",
+        "not mentioned",
+        "unable to provide"
+    ]
+    
+    # Check if response suggests incomplete information
+    response_lower = response_text.lower()
+    is_incomplete = any(indicator in response_lower for indicator in incomplete_indicators)
+    
+    # Add portfolio link if response seems incomplete
+    if is_incomplete and PORTFOLIO_URL not in response_text:
+        return f"{response_text}\n\nFor more detailed information, please check my portfolio at {PORTFOLIO_URL}."
+    
+    return response_text
 
 
 def run_llm(groq_key: str, prompt: str) -> Dict:
@@ -240,38 +245,9 @@ def main():
         prompt = make_prompt(user_msg, retrieved, st.session_state["messages"])
         raw_response = run_llm(groq_key, prompt)
 
-        # Guardrails validation (best-effort) — coerce to a clean string
+        # Simple validation to add portfolio link when needed
         result_text = raw_response.get("answer", "")
-        try:
-            validated = guard.parse(llm_output=result_text, prompt=prompt)
-            candidate = None
-            for key in ("parsed_output", "validated_output", "output", "raw_output"):
-                val = getattr(validated, key, None)
-                if val:
-                    candidate = val
-                    break
-            if candidate is not None:
-                if isinstance(candidate, dict):
-                    ans = candidate.get("answer") or candidate.get("output") or candidate.get("text")
-                    if isinstance(ans, (list, tuple)):
-                        result_text = " ".join(str(x) for x in ans)
-                    elif ans is not None:
-                        result_text = str(ans)
-                    else:
-                        result_text = str(candidate)
-                elif isinstance(candidate, (list, tuple)):
-                    result_text = " ".join(str(x) for x in candidate)
-                elif isinstance(candidate, str):
-                    result_text = candidate
-                else:
-                    # Fallback: force to string (handles generators via consumption where possible)
-                    try:
-                        result_text = "".join(list(candidate))  # type: ignore[arg-type]
-                    except Exception:
-                        result_text = str(candidate)
-        except Exception:
-            # If guardrails fails, keep the raw LLM content
-            pass
+        result_text = validate_response(result_text, user_msg)
 
         st.session_state["messages"].append({"role": "assistant", "content": result_text})
         with st.chat_message("assistant"):

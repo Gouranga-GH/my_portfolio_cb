@@ -12,7 +12,7 @@ Features
 - RAG over resume + project summary
 - Hugging Face endpoint embeddings (sentence-transformers/all-MiniLM-L6-v2)
 - FAISS vector search (auto‑fallback to in‑memory search if FAISS not available)
-- Guardrails: add portfolio link only when the answer is out of context
+- Simple validation: add portfolio link only when the answer is out of context
 - Streamlit chat UI with history; Top‑K is fixed to 8
 - Light theme + gradient styling aligned with portfolio
 
@@ -40,7 +40,7 @@ How it works
 1) Loads and chunks data/Gouranga_Jha_Resume.docx and data/Projects_Summary.txt (≈1500 chars, 200 overlap).
 2) Generates embeddings through HF Inference API and builds an in‑memory FAISS index for the session.
 3) For each chat turn, retrieves Top‑K (8) chunks and sends the context + short conversation history to the LLM (Groq).
-4) Guardrails post‑validate: if the answer requires info outside the context, a single closing sentence invites the user to check the portfolio.
+4) Simple validation post‑processes: if the answer requires info outside the context, a single closing sentence invites the user to check the portfolio.
 
 Deploy to Streamlit Cloud
 1) Push this repo to GitHub.
@@ -55,7 +55,7 @@ Deploy to Streamlit Cloud
 
 Project structure
 - app.py – entrypoint (launches the Streamlit app)
-- apps/gj_rag_chat/main.py – Streamlit app logic (RAG, UI, guardrails)
+- apps/gj_rag_chat/main.py – Streamlit app logic (RAG, UI, validation)
 - .streamlit/config.toml – Light theme that matches portfolio
 - requirements.txt – Python deps
 - sample_env.txt – Example env values
