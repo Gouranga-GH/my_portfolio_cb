@@ -2,7 +2,7 @@ Gouranga Jha – RAG Chatbot (Portfolio Assistant)
 
 A Streamlit app that answers in first person as Gouranga Jha using Retrieval‑Augmented Generation (RAG) over:
 
-- data/Gouranga_Jha_Resume.docx
+- data/Gouranga_Resume.docx
 - data/Projects_Summary.txt
 
 Embeddings are computed via Hugging Face Inference API (no local downloads) and indexed in‑memory with FAISS per session. The UI is theme‑matched to the portfolio and runs well on Streamlit Cloud.
@@ -37,7 +37,7 @@ Notes
 - No keys are shown in the UI.
 
 How it works
-1) Loads and chunks data/Gouranga_Jha_Resume.docx and data/Projects_Summary.txt (≈1500 chars, 200 overlap).
+1) Loads and chunks data/Gouranga_Resume.docx and data/Projects_Summary.txt (≈1500 chars, 200 overlap).
 2) Generates embeddings through HF Inference API and builds an in‑memory FAISS index for the session.
 3) For each chat turn, retrieves Top‑K (8) chunks and sends the context + short conversation history to the LLM (Groq).
 4) Simple validation post‑processes: if the answer requires info outside the context, a single closing sentence invites the user to check the portfolio.

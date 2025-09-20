@@ -20,7 +20,7 @@ APP_TITLE = "Hi, I am Gouranga Jha — ask me a question"
 PORTFOLIO_URL = "https://gouranga-gh.github.io/my-portfolio/"
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
-RESUME_PATH = DATA_DIR / "Gouranga_Jha_Resume.docx"
+RESUME_PATH = DATA_DIR / "Gouranga_Resume.docx"
 SUMMARY_PATH = DATA_DIR / "Projects_Summary.txt"
 
 
